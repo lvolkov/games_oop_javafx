@@ -71,6 +71,36 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
+        for (int i = 0; i < table.length; i++) {
+            if (table[i][i] == 1) {
+                if (monoHorizontal(table, i) || monoVertical(table, i)) {
+                    result = true;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    public static boolean monoHorizontal(int[][] table, int row) {
+        boolean result = true;
+        for (int i = 0; i < table[row].length; i++) {
+            if (table[row][i] != 1) {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+    //создаем метод проверки заполненной вертикали
+    public static boolean monoVertical(int[][] table, int column) {
+        boolean result = true;
+        for (int i = 0; i < table.length; i++) {
+            if (table[i][column] != 1) {
+                result = false;
+                break;
+            }
+        }
         return result;
     }
 
