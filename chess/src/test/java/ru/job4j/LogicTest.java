@@ -22,7 +22,7 @@ public class LogicTest {
         assertThat(result, is(true));
     }
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void whenCantMoveNotDiagonal() {
         Logic logic = new Logic();
         BishopBlack bb = new BishopBlack(Cell.C1);
